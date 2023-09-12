@@ -1,10 +1,20 @@
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Box } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
+import MovieDetail from "./components/Details/MovieDetail";
+import Home from "./components/Home/Home";
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <div>Movie Discovery App</div>
-    </div>
+    <Box className="App">
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/:id" element={<MovieDetail />} />
+      </Routes>
+    </Box>
   );
 }
 
