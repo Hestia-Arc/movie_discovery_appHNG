@@ -4,7 +4,7 @@ import { Stack } from "@mui/system";
 import Tv from "../images/tv.svg";
 import Poster from "../images/Poster.png";
 import Menu from "../images/Menu.png";
-import Play from "../images/Play.svg";
+import Play1 from "../images/Play1.svg";
 import SearchBox from "./SearchBox";
 
 const AppHeader = styled("header")({
@@ -26,6 +26,8 @@ const NavBar = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
 });
+
+
 function Header() {
   return (
     <AppHeader>
@@ -44,7 +46,7 @@ function Header() {
       </NavBar>
 
       <Stack>
-        <Typography variant="h3">
+        <Typography variant="h3" component='div'>
           John Wick 3 : <br /> Parabellum
         </Typography>
         <Typography variant="h6">
@@ -55,7 +57,7 @@ function Header() {
         </Typography>
 
         <Button>
-        <img src={Play} style={{ height: 50, width: 50 }} alt="play" />
+        <img src={Play1} style={{ height: 50, width: 50 }} alt="play" />
             <Typography>Watch Trailer</Typography></Button>
       </Stack>
     </AppHeader>
