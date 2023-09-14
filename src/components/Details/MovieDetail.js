@@ -14,10 +14,25 @@ import { ListOutlined, LocalMovies } from "@mui/icons-material";
 import Ticket from "../../images/Two Tickets.svg";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 
-const Detail = styled(Stack)({
+const Detail = styled(Stack)(({ theme }) => ({
   width: "100%",
   padding: "20px 20px 200px 20px ",
-});
+  [theme.breakpoints.up("xs")]: {
+    padding: "10px",
+    
+  },
+
+  [theme.breakpoints.up("sm")]: {
+  
+  },
+
+  [theme.breakpoints.up("md")]: {
+  
+  },
+  [theme.breakpoints.up("lg")]: {
+    
+  },
+}));
 
 const TextEl = styled("div")({
   fontSize: "16px",
@@ -110,14 +125,15 @@ function MovieDetail() {
         {/* DETAILS */}
         {/* ---------------------------------- */}
         <Stack
-          direction="row"
+          direction={{ xs: 'column', md: 'row' }}
           justifyContent="space-between"
           sx={{ marginTop: "60px" }}
         >
           <Box sx={{ flex: 5 }}>
-            <Box
+            <Stack
+             direction={{ xs: 'column', sm: 'row' }}
               sx={{
-                display: "flex",
+                
                 alignItems: "center",
                 marginBottom: "25px",
               }}
@@ -125,7 +141,7 @@ function MovieDetail() {
               <Typography variant="h4" data-testid="movie-title">
                 {title}
               </Typography>
-              <Stack direction="row" spacing={1} sx={{ marginLeft: 5 }}>
+              <Stack direction="row" spacing={1} sx={{ marginLeft: {xs: 0, sm: 5}, marginTop: {xs: 1} }}>
                 {genres.map((genre) => {
                   return (
                     <Chip
@@ -139,7 +155,7 @@ function MovieDetail() {
 
                 {/* <Chip label="Chip Outlined" variant="outlined"/> */}
               </Stack>
-            </Box>
+            </Stack>
             <TextEl data-testid="movie-release-date">
               Release Date: {release_date}
             </TextEl>
@@ -163,8 +179,9 @@ function MovieDetail() {
                 data-testid="movie-overview"
                 variant="h8"
                 sx={{
+                  
                   marginBottom: "15px",
-                  padding: "5px 50px 30px 10px",
+                  padding: {xs: '10px 0', sm: "5px 50px 30px 10px", md: "5px 80px 30px 10px",},
                   lineHeight: 1.5,
                 }}
               >

@@ -17,20 +17,49 @@ import { FavoriteBorderRounded, FavoriteRounded } from "@mui/icons-material";
 import Tomato from "../images/tomato.svg";
 import Imdb from "../images/imdb.svg";
 
-const MainContent = styled("main")({
+const MainContent = styled("main")(({ theme }) => ({
   padding: "100px",
   minHeight: "400px",
-});
+  [theme.breakpoints.up("xs")]: {
+    padding: "50px 10px"
+  },
 
-const MovieList = styled(Grid)({
-  padding: "50px 0px",
+  [theme.breakpoints.up("sm")]: {
+  
+  },
+
+  [theme.breakpoints.up("md")]: {
+  
+  },
+  [theme.breakpoints.up("lg")]: {
+    
+  },
+}));
+
+const MovieList = styled(Grid)(({ theme }) => ({
+  marginTop: "50px",
   // minHeight: '400px',
-});
+  [theme.breakpoints.up("xs")]: {
+    marginLeft: 0, 
+    marginTop: "10px",
+  },
+
+  [theme.breakpoints.up("sm")]: {
+  
+  },
+
+  [theme.breakpoints.up("md")]: {
+  
+  },
+  [theme.breakpoints.up("lg")]: {
+    
+  },
+}));
 
 const MovieCard = styled(Card)({
   padding: "14px",
-  minHeight: "595px",
-  width: "350px",
+  height: "540px",
+  width: "300px",
   position: "relative",
   background: "rgba(232, 232, 232, 0.22)",
   transition: "transform .2s",
@@ -53,8 +82,9 @@ function Main() {
     );
     //  {/*fetching data from API in JSON Format */}
     const theMovies = await data.json();
-    console.log(theMovies.results);
-    setMovies(theMovies.results);
+    // console.log(theMovies.results);
+    setMovies(theMovies.results.splice(0, 10));
+    // console.log(movies);
   };
 
   useEffect(() => {
@@ -63,9 +93,9 @@ function Main() {
 
   return (
     <MainContent>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{}}>
         <Typography
-          variant="h4"
+          variant="h3"
           sx={{ fontWeight: 600, color: "rgba(64, 64, 64, 1)" }}
         >
           Top Movies
@@ -75,11 +105,11 @@ function Main() {
         </Typography>
       </Stack>
 
-      <MovieList container spacing={10}>
+      <MovieList container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 6 }}>
         {movies.map((movie) => {
           const { id, title, release_date, poster_path } = movie;
           return (
-            <Grid item>
+            <Grid item sx={{minHeight: 540}}>
               <CardActionArea>
                 <Link
                   to={`./${id}`}
@@ -90,9 +120,10 @@ function Main() {
                 >
                   <MovieCard id={id} data-testid="movie-card">
                     <CardMedia
-                      height="70%"
+                      // width="300px"
+                      height="350px"
                       component="img"
-                      image={"https://image.tmdb.org/t/p/w300" + poster_path}
+                      image={"https://image.tmdb.org/t/p/w200" + poster_path}
                       alt="icon"
                       sx={{ perspective: 1000 }}
                       data-testid="movie-poster"

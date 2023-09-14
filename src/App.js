@@ -1,16 +1,15 @@
 import React from "react";
 import "./App.css";
-import {  ThemeProvider, createTheme } from "@mui/material/styles";
+// import {  ThemeProvider} from "@/mui/material";
 import { Routes, Route } from "react-router-dom";
 import MovieDetail from "./components/Details/MovieDetail";
 import Home from "./components/Home/Home";
-import { Box } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
+import { theme } from "./theme";
 
-const theme = createTheme({
-  typography: {
-    fontFamily: ["Fredoka", "sans-serif"].join(","),
-  },
-});
+
+
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
