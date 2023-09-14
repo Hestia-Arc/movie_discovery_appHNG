@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Stack, Button, Typography, styled } from "@mui/material";
 import Tv from "../images/tv.svg";
 import Poster from "../images/Poster.png";
@@ -26,10 +26,6 @@ import SearchBox from "./SearchBox";
 
 const AppHeader = styled(Stack)(({ theme }) => ({
   height: "700px",
-  backgroundImage: `url(${Poster})`,
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
   padding: "0px 100px",
   color: "#fff",
   display: "flex",
@@ -69,8 +65,35 @@ const ButtonEl = styled(Button)({
 });
 
 function Header() {
+  const [movie, setMovie] = useState([]);
+
+  const getMovie = async () => {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=2352957460dd7eafd8fea42907b09cad&language=en-US&page=1"
+    );
+    //  {/*fetching data from API in JSON Format */}
+    const theMovies = await data.json();
+    const randomIndex = Math.floor(Math.random() * theMovies.results.length);
+    const randomMovie = theMovies.results[randomIndex];
+     console.log(randomMovie);
+    setMovie(randomMovie);
+  };
+
+  useEffect(() => {
+    getMovie();
+  }, []);
   return (
-    <AppHeader justifyContent="space-between">
+    <AppHeader
+      justifyContent="space-between"
+      sx={{
+        background: 'rgba(232,222,232,0.1)',
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        
+      }}
+    >
       <NavBar>
         <IconContainer>
           <img
@@ -102,12 +125,14 @@ function Header() {
         }}
       >
         <Typography variant="h3" component="div">
-          John Wick 3 : <br /> Parabellum
+          {movie.title}
+          {/* John Wick 3 : <br /> Parabellum */}
         </Typography>
         <Typography variant="h6" sx={{ fontWeight: { xs: 400 } }}>
-          John Wick is on the run after killing a member of the international
+        {movie.overview}
+          {/* John Wick is on the run after killing a member of the international
           assassins' guild, and with a $14 million price tag on his head, he is
-          the target of hit men and women everywhere.
+          the target of hit men and women everywhere. */}
         </Typography>
 
         <ButtonEl>

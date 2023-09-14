@@ -34,7 +34,7 @@ const ImgEl = styled("img")({
 const FooterLink = styled("div")(({ theme }) => ({
   fontSize: "28px",
   fontWeight: 500,
-  [theme.breakpoints.up("xs")]: {
+  [theme.breakpoints.between("xs", "sm")]: {
     fontSize: "18px",
     textAlign: 'center'
   },

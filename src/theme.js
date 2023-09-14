@@ -8,7 +8,7 @@ export const theme = createTheme({
   
   
   theme.typography.h3 = {
-    fontSize: '2.2rem',
+    fontSize: '2.5rem',
     fontWeight: 600,
     // '@media (min-width:600px)': {
     //   fontSize: '1.5rem',
