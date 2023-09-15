@@ -16,7 +16,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Hestia-Arc/movie_discovery_app_hngx">
+  <a href="https://movie-discovery-app-hng.vercel.app/">
     <img src="./src/images/tv.svg" alt="Logo" width="80" height="80">
   </a>
 
@@ -71,7 +71,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://movie-discovery-app-hng.vercel.app/)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -80,7 +80,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 * [![React][React.js]][https://react.org/]
-* [![Mui][MUI]][https://mui.org/]
+* [![MUI][MUI]][https://mui.org/]
 * [![Tmdb][Tmdb]][https://moviedb.org/]
 
 
