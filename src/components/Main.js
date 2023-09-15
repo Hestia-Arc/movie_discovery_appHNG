@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { FavoriteBorderRounded, FavoriteRounded } from "@mui/icons-material";
 import Tomato from "../images/tomato.svg";
 import Imdb from "../images/imdb.svg";
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
 const MainContent = styled("main")(({ theme }) => ({
   padding: "100px",
@@ -104,6 +105,7 @@ function Main() {
         </Typography>
         <Typography variant="h7" sx={{ color: "#BE123C" }}>
           See more{" "}
+          <ArrowForwardIosRoundedIcon/>
         </Typography>
       </Stack>
 

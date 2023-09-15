@@ -10,20 +10,21 @@ import {
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { ListOutlined, LocalMovies } from "@mui/icons-material";
+import { ListOutlined } from "@mui/icons-material";
 import Ticket from "../../images/Two Tickets.svg";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const Detail = styled(Stack)(({ theme }) => ({
   width: "100%",
   padding: "20px 20px 200px 20px ",
   [theme.breakpoints.up("xs")]: {
-    padding: "10px",
+   
     
   },
 
-  [theme.breakpoints.up("sm")]: {
-  
+  [theme.breakpoints.down("sm")]: {
+    padding: "10px",
   },
 
   [theme.breakpoints.up("md")]: {
@@ -58,12 +59,16 @@ const ButtonEl = styled(Button)({
 function MovieDetail() {
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { title, backdrop_path, release_date, runtime, overview } = movie;
 
   const { id } = useParams();
 
   const getDetail = async () => {
+    setLoading(true);
+
+    try {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=2352957460dd7eafd8fea42907b09cad&language=en-US`
     );
@@ -72,6 +77,11 @@ function MovieDetail() {
     console.log(theDetail);
     setMovie(theDetail);
     setGenres(theDetail.genres);
+    } catch (error) {
+      console.log("Error", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -82,6 +92,27 @@ function MovieDetail() {
     <Box sx={{ display: "flex" }}>
       <Sidebar />
       <Detail>
+        {loading ? 
+        <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "200px",
+        }}
+      >
+        <FadeLoader
+          // loading={loading}
+          // size={150}
+          // aria-label="Loading Spinner"
+          // data-testid="loader"
+          color="#36d7b7"
+        />
+      </Box>
+      : 
+        (<>
+
+     
         <Box
           sx={{
             minHeight: 500,
@@ -212,7 +243,8 @@ function MovieDetail() {
             </ButtonEl>
           </Box>
         </Stack>
-        
+        </>
+         ) }
       </Detail>
     </Box>
   );

@@ -75,7 +75,7 @@ const RightMenuContainer = styled("div")(({ theme }) => ({
   alignItems: "center",
 
   [theme.breakpoints.down("sm")]: {
-    marginRight: '-38%'
+    marginRight: "-38%",
   },
 }));
 
@@ -166,14 +166,16 @@ function Header() {
           setSearchValue={setSearchValue}
         />
 
-        <RightMenuContainer >
+        <RightMenuContainer>
           <Typography
             variant="h6"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
             Sign In
           </Typography>
-          <Box sx={{ display: { xs: "block", sm: "none" } }}><img src={Search} alt="icon" style={{ height: 30,}} /></Box>  
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            <img src={Search} alt="icon" style={{ height: 30 }} />
+          </Box>
           <img
             src={Menu}
             style={{ height: 50, width: 50, marginLeft: 10 }}
