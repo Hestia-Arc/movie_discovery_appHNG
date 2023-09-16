@@ -23,12 +23,12 @@
 <h3 align="center">A Movie Discovery Application</h3>
 
   <p align="center">
-    A movie discovery application, where user can see the top rated movies, see details about each one and search for a movie by title. 
+    A movie discovery application, where user can discover top rated movies, see details about each one and search for a movie by title. 
     <br />
     <a href="https://github.com/Hestia-Arc/movie_discovery_app_hngx"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Hestia-Arc/movie_discovery_app_hngx">View Demo</a>
+    <a href="https://movie-discovery-app-hng.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/Hestia-Arc/movie_discovery_app_hngx/issues">Report Bug</a>
     ·
@@ -153,12 +153,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Search movies by title
+- [ ] List of top rated movie
+- [ ] Movie details and overview
 
-See the [open issues](https://github.com/Hestia-Arc/movie_discovery_app_hngx/issues) for a full list of proposed features (and known issues).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,8 +183,6 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- LICENSE -->
 ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
